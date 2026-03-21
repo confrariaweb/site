@@ -26,14 +26,31 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+async function verifyTurnstile(token, env) {
+  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ secret: env.TURNSTILE_SECRET_KEY, response: token }),
+  });
+  const data = await res.json();
+  return data.success === true;
+}
+
 async function handleContact(request, env) {
   try {
     const data = await request.json();
-    const { name, email, phone, message } = data;
+    const { name, email, phone, message, turnstileToken } = data;
 
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: "Campos obrigatórios ausentes." }), {
         status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    if (!turnstileToken || !(await verifyTurnstile(turnstileToken, env))) {
+      return new Response(JSON.stringify({ error: "Verificação de segurança falhou. Recarregue a página e tente novamente." }), {
+        status: 403,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
     }

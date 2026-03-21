@@ -13,6 +13,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://confrariaweb.com.br">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#e94560">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -21,13 +22,15 @@
   <meta property="og:description" content="Transformamos sua presença digital em resultados reais. Sites profissionais, landing pages, e-commerce e SEO.">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Confraria Web">
-  <meta property="og:image" content="https://confrariaweb.com.br/og-image.svg">
+  <meta property="og:image" content="https://confrariaweb.com.br/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Confraria Web — Agência Digital | Criação de Sites Profissionais">
   <meta name="twitter:description" content="Transformamos sua presença digital em resultados reais. Sites profissionais, landing pages, e-commerce e SEO.">
-  <meta name="twitter:image" content="https://confrariaweb.com.br/og-image.svg">
+  <meta name="twitter:image" content="https://confrariaweb.com.br/og-image.png">
 
   <!-- Schema.org / Structured Data -->
   <script type="application/ld+json">
@@ -59,6 +62,9 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -280,39 +286,60 @@
       </div>
 
       <div class="portfolio-grid">
-        <!-- Project 1 -->
+        <!-- Project 1 — Atendus -->
         <div class="portfolio-card animate-on-scroll">
-          <div class="portfolio-thumb portfolio-thumb--1">
-            <span class="portfolio-badge">Landing Page</span>
-          </div>
-          <div class="portfolio-info">
-            <h3>Em breve</h3>
-            <p>Estamos finalizando nosso portfólio. Novos projetos serão divulgados em breve.</p>
-            <span class="portfolio-tag">Web Design</span>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="portfolio-card animate-on-scroll">
-          <div class="portfolio-thumb portfolio-thumb--2">
+          <a href="https://atendus.com.br/" target="_blank" rel="noopener" class="portfolio-thumb">
+            <img src="assets/portfolio/atendus.jpg" alt="Site Atendus" loading="lazy" width="800" height="450">
             <span class="portfolio-badge">Site Institucional</span>
-          </div>
+          </a>
           <div class="portfolio-info">
-            <h3>Em breve</h3>
-            <p>Acompanhe nossas redes sociais para ver os próximos cases de sucesso.</p>
-            <span class="portfolio-tag">Desenvolvimento</span>
+            <h3>Atendus</h3>
+            <p>Site institucional moderno com foco em conversão, apresentando serviços e facilitando o contato com clientes.</p>
+            <div class="portfolio-footer">
+              <span class="portfolio-tag">Web Design</span>
+              <a href="https://atendus.com.br/" target="_blank" rel="noopener" class="portfolio-link">
+                Ver site
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Project 3 -->
+        <!-- Project 2 — Pamela -->
         <div class="portfolio-card animate-on-scroll">
-          <div class="portfolio-thumb portfolio-thumb--3">
-            <span class="portfolio-badge">E-commerce</span>
-          </div>
+          <a href="https://pamela.fst.br/" target="_blank" rel="noopener" class="portfolio-thumb">
+            <img src="assets/portfolio/pamela.jpg" alt="Site Pamela" loading="lazy" width="800" height="450">
+            <span class="portfolio-badge">Site Profissional</span>
+          </a>
           <div class="portfolio-info">
-            <h3>Em breve</h3>
-            <p>Quer ser um dos primeiros cases de sucesso da Confraria Web? Fale conosco!</p>
-            <span class="portfolio-tag">E-commerce</span>
+            <h3>Pamela Fisioterapeuta</h3>
+            <p>Site profissional elegante com identidade visual única, otimizado para geração de leads e presença digital.</p>
+            <div class="portfolio-footer">
+              <span class="portfolio-tag">Landing Page</span>
+              <a href="https://pamela.fst.br/" target="_blank" rel="noopener" class="portfolio-link">
+                Ver site
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 — Tua Futura Nutri -->
+        <div class="portfolio-card animate-on-scroll">
+          <a href="https://tuafuturanutri.com.br/" target="_blank" rel="noopener" class="portfolio-thumb">
+            <img src="assets/portfolio/tuafuturanutri.jpg" alt="Site Tua Futura Nutri" loading="lazy" width="800" height="450">
+            <span class="portfolio-badge">Landing Page</span>
+          </a>
+          <div class="portfolio-info">
+            <h3>Tua Futura Nutri</h3>
+            <p>Landing page de alta conversão para nutricionista, com foco em captação de pacientes e agendamento online.</p>
+            <div class="portfolio-footer">
+              <span class="portfolio-tag">Saúde & Bem-estar</span>
+              <a href="https://tuafuturanutri.com.br/" target="_blank" rel="noopener" class="portfolio-link">
+                Ver site
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -503,23 +530,25 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Nome *</label>
-                  <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                  <input type="text" id="name" name="name" placeholder="Seu nome completo" required autocomplete="name">
                 </div>
                 <div class="form-group">
                   <label for="email">E-mail *</label>
-                  <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                  <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="phone">Telefone / WhatsApp</label>
-                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
+                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" autocomplete="tel">
               </div>
 
               <div class="form-group">
                 <label for="message">Mensagem *</label>
                 <textarea id="message" name="message" placeholder="Conte-nos sobre seu projeto..." required></textarea>
               </div>
+
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACuMzFwlq35CzHl1" data-theme="light"></div>
 
               <div class="form-error" id="form-error"></div>
 
@@ -571,7 +600,8 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Confraria Web. Todos os direitos reservados.</p>
+        <p>&copy; <span id="copyright-year">2026</span> Confraria Web. Todos os direitos reservados.</p>
+        <p class="footer-empresa">Conheça nossa empresa: <a href="https://atendus.com.br/" target="_blank" rel="noopener">Atendus</a></p>
       </div>
     </div>
   </footer>

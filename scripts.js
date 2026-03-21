@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initCountUp();
   initFaq();
+  const yearEl = document.getElementById('copyright-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 // ===== Navbar scroll effect =====
@@ -97,14 +99,18 @@ function initContactForm() {
       return;
     }
 
-    // Validate loading state element exists (create if not)
+    // Turnstile token
+    const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+    if (!turnstileToken) {
+      showFieldError('Por favor, aguarde a verificação de segurança e tente novamente.');
+      return;
+    }
+
     let btnSubmit = document.getElementById('btn-submit');
     const originalBtnText = btnSubmit.innerHTML;
     btnSubmit.innerHTML = 'Enviando...';
     btnSubmit.disabled = true;
 
-    // Send data to Cloudflare Worker
-    // IMPORTANT: Replace this URL with your deployed Cloudflare Worker URL
     const workerUrl = '/api/contact';
 
     fetch(workerUrl, {
@@ -112,7 +118,7 @@ function initContactForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, phone, message })
+      body: JSON.stringify({ name, email, phone, message, turnstileToken })
     })
     .then(response => response.json())
     .then(data => {
@@ -130,6 +136,7 @@ function initContactForm() {
       // Reset after 5 seconds
       setTimeout(() => {
         form.reset();
+        if (window.turnstile) window.turnstile.reset();
         formBody.style.display = 'block';
         formSuccess.classList.remove('show');
       }, 5000);
@@ -138,6 +145,7 @@ function initContactForm() {
       console.error('Error sending message:', error);
       btnSubmit.innerHTML = originalBtnText;
       btnSubmit.disabled = false;
+      if (window.turnstile) window.turnstile.reset();
       showFieldError('Houve um erro ao enviar sua mensagem. Tente novamente ou nos chame no WhatsApp.');
     });
   });
