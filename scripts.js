@@ -6,23 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initSmoothScroll();
   initCountUp();
+  initFaq();
 });
 
 // ===== Navbar scroll effect =====
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 60) {
+    if (window.pageYOffset > 60) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
   });
 }
 
@@ -86,9 +82,18 @@ function initContactForm() {
     const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
 
+    // Clear any previous error
+    const errorEl = document.getElementById('form-error');
+    if (errorEl) errorEl.classList.remove('show');
+
     // Basic validation
     if (!name || !email || !message) {
       showFieldError('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      showFieldError('Por favor, informe um e-mail válido.');
       return;
     }
 
@@ -100,7 +105,7 @@ function initContactForm() {
 
     // Send data to Cloudflare Worker
     // IMPORTANT: Replace this URL with your deployed Cloudflare Worker URL
-    const workerUrl = 'https://seu-worker.seu-usuario.workers.dev'; 
+    const workerUrl = '/api/contact';
 
     fetch(workerUrl, {
       method: 'POST',
@@ -143,8 +148,11 @@ function isValidEmail(email) {
 }
 
 function showFieldError(msg) {
-  // Simple alert — could be replaced with inline errors
-  alert(msg);
+  const errorEl = document.getElementById('form-error');
+  if (!errorEl) return;
+  errorEl.textContent = msg;
+  errorEl.classList.add('show');
+  setTimeout(() => errorEl.classList.remove('show'), 6000);
 }
 
 // ===== Smooth Scroll =====
@@ -186,6 +194,31 @@ function initCountUp() {
   }, { threshold: 0.5 });
 
   counters.forEach(c => observer.observe(c));
+}
+
+// ===== FAQ Accordion =====
+function initFaq() {
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').classList.remove('open');
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }
 
 function animateCount(el, target, suffix) {
