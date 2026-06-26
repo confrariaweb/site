@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e7e8f0",
+                    "primary-fixed": "#d7e2ff",
+                    "outline": "#727784",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c2c6d4",
+                    "on-error": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "on-background": "#191c21",
+                    "background": "#f9f9ff",
+                    "tertiary-container": "#a42f03",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary-fixed": "#ffdbd0",
+                    "secondary-container": "#fdd34d",
+                    "primary": "#003f87",
+                    "primary-fixed-dim": "#acc7ff",
+                    "tertiary-fixed-dim": "#ffb59f",
+                    "surface-variant": "#e1e2ea",
+                    "surface-dim": "#d9d9e2",
+                    "on-secondary-fixed": "#241a00",
+                    "on-secondary-container": "#725b00",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#424752",
+                    "inverse-on-surface": "#f0f0f9",
+                    "surface-container": "#ededf6",
+                    "secondary-fixed-dim": "#ebc23e",
+                    "secondary": "#735c00",
+                    "on-tertiary-fixed": "#3a0a00",
+                    "on-primary-fixed": "#001a40",
+                    "on-primary-fixed-variant": "#004491",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#0056b3",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary-fixed-variant": "#852300",
+                    "inverse-surface": "#2e3037",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#7c2000",
+                    "surface-container-highest": "#e1e2ea",
+                    "surface-tint": "#115cb9",
+                    "on-tertiary-container": "#ffc2b0",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f2f3fc",
+                    "inverse-primary": "#acc7ff",
+                    "on-primary-container": "#bbd0ff",
+                    "secondary-fixed": "#ffe087",
+                    "on-surface": "#191c21"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            background: linear-gradient(to bottom, transparent, var(--tw-bg-opacity));
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased">
+
+<!-- Tarja de demonstração -->
+<div class="fixed top-0 left-0 right-0 z-[9999] bg-orange-500 text-white text-center py-2 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 flex-wrap">
+  <span>⚠️ Este é um <strong>site de demonstração</strong> criado pela Confraria Web</span>
+  <a href="https://confrariaweb.com.br" target="_blank" rel="noopener" class="underline font-bold hover:opacity-80 transition-opacity whitespace-nowrap">— Quero um site assim →</a>
+</div>
+
+<!-- TopNavBar -->
+<header class="fixed top-10 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tight text-blue-900 dark:text-blue-200 font-headline">Confraria do Pet</div>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold text-sm">
+<a class="text-blue-900 dark:text-blue-200 border-b-2 border-yellow-400 pb-1 hover:text-blue-700 transition-colors duration-300" href="#servicos">Serviços</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors duration-300" href="#sobre">Sobre</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors duration-300" href="#galeria">Galeria</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors duration-300" href="#depoimentos">Depoimentos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors duration-300" href="#contato">Localização</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-headline font-semibold active:scale-95 duration-200 shadow-lg shadow-primary/20">
+                Agendar
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-44 pb-20 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 space-y-8 z-10">
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs font-bold uppercase tracking-widest">Excelência em Estética Pet</span>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-primary leading-tight">
+                        Cuidado com carinho para o seu melhor amigo
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        Um ambiente projetado para o conforto e segurança do seu pet. Profissionais apaixonados que garantem um atendimento humanizado e transformador.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline font-bold text-lg hover:translate-y-[-2px] transition-all shadow-xl shadow-primary/25">
+                            Agendar agora
+                        </button>
+</div>
+</div>
+<div class="flex-1 relative">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-secondary-container rounded-full blur-3xl opacity-30"></div>
+<div class="relative z-0 rounded-xl overflow-hidden aspect-[4/5] shadow-2xl">
+<img alt="Pet grooming professional" class="w-full h-full object-cover" data-alt="A cute and happy dog being bathed with lots of soap bubbles in a professional pet grooming tub. High-quality 3D digital illustration, modern and friendly pet shop brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMn9erwRwGmbtcQ9X7KnL6j9hlhTb9Jz7EYatORsrN6sLzXHnoO2S5CJcuCudPKb7HdJXxwt4QeyqeDVf97mqzvrQWDFKV7khtwb3niuglTy_kuj1QFcqxeAwI0piyJLEkIMKqjen3rE-qZ4pMtUDndjQol12byG5KTOGVvAucUMQ6-e6oAZ1n7GvFSy6B_P5ACDjaYnohna2aMqhKL0V5JkIvmQPsknffQsrJdOSmQP5BDk9Wh_zV_Sl0XoNGen8Tp1xEItMPulY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-6 rounded-lg shadow-xl flex items-center gap-4 animate-bounce-subtle">
+<div class="bg-secondary-container p-3 rounded-full">
+<span class="material-symbols-outlined text-on-secondary-container">pets</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">5,000+</p>
+<p class="text-xs text-on-surface-variant">Pets Felizes</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Serviços de Beleza -->
+<section class="py-24 bg-surface-container-low" id="servicos">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-4">Serviços de Beleza</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Tratamentos especializados que unem estética e bem-estar para todas as raças.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-300">
+<div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Banho Premium</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">Produtos hipoalergênicos de alta qualidade para uma limpeza profunda e segura.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/20">
+<span class="text-primary font-bold text-xl">A partir de R$ 60</span>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-300">
+<div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">content_cut</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Tosa Estilizada</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">Cortes precisos seguindo o padrão da raça ou o estilo preferido do tutor.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/20">
+<span class="text-primary font-bold text-xl">A partir de R$ 85</span>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-300">
+<div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Hidratação SPA</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">Tratamento de pelagem com máscaras nutritivas para brilho e maciez intensos.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/20">
+<span class="text-primary font-bold text-xl">A partir de R$ 45</span>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Galeria de Fofuras -->
+<section class="py-24" id="galeria">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<span class="text-secondary font-bold font-headline uppercase tracking-widest text-sm">Portfólio</span>
+<h2 class="text-4xl font-headline font-extrabold text-primary mt-2">Galeria de Fofuras</h2>
+</div>
+<p class="text-on-surface-variant max-w-md leading-relaxed">Confira o resultado do nosso trabalho com alguns dos nossos clientes mais especiais.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="rounded-lg overflow-hidden h-80 shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="cute small maltese dog with a stylish top knot and blue ribbon sitting proudly after grooming" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_K68v4r15iaJTPOTaU6meZIxKHRSQ3PAvoqO8BPom6Xckqbg3iA7Np3s7b6BnHOvx-nWfg80V-nGyEb4QCMv9gu_qZbrhuqqdQi9k8spn7BVN-QDEZxha3Jusrx25Wwn9oBcRDgfxLvbuqjkMkUQcctvAiaHUgahNbRhS3aaEIvdXcNwiGPGIrDnm0xhl9_43T_Tr0IHdxyek11MOVLeIz1rBfqD0ovKUcmTtMPixypvAE5mTwrecFLrqU-eOc6GaC4wtUYD3DEY"/>
+</div>
+<div class="rounded-lg overflow-hidden h-[400px] md:-mt-12 shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="elegant persian cat with perfectly brushed fluffy white fur looking at the camera in a pet spa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUjgGcmWAgGR4bcLk2p2O2eFR5jme638OmVZ217uFFHzpb-sVp99kKqBEGVjczvjnVM2cZsiWvoR8RZPlrDIByl9FGQ85zoyeUHIvsDRlBARajc6Y6eGg2HRhtXh4WJeMLaFJwJsYyn2afbMYJ29M02AfIxrNJpFps0qkNHYBLN_-jWhoDQkxrFIg0ULt-z3n97KE4kQMQJaiBghBdu9l3FTwMA3gm4bEKlaifSaqxLSlgcoaPWS9vl3pK7qQI0k32SdAH9pZ7GJk"/>
+</div>
+<div class="rounded-lg overflow-hidden h-80 shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="playful poodle with a fresh lion cut running on a clean surface showing energy and joy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABHZNJLJghdv2Zc6IDsR4Bshv3g2acXFJenako_9vSGUg6Wv8oQCWiwp9M4Py9ooiLEUaRERxpbpiIGvxnSnn_J7_H_59rMYojeRGPxanN829o1lVWox7t61edXvmDmJEotN7h_noszFR4dxnqekg_AFSa69NWWDrWutjwYw_sqAHaJ2VRfAWDmMyekREhBBdxefkUM47w5MUboPFELEKFIM6S7tfOwcOz---EOv8rwtoTho2MM7EF4gYkqnyOtULj7c4rqncoRhg"/>
+</div>
+<div class="rounded-lg overflow-hidden h-[360px] shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="sturdy bulldog after a bath looking clean and shiny in a bright modern grooming salon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGk8-jOowXHHb2dRmzkgU4I8AQvbi5QroBU2BGtrGL4r45WIksB0pc4f22E9Bznm11zzG58kmYK9Zx45r7f-QWQ16xfeR0IqOwmwVTxpDvslXPWZO4_S-PU4zY1svxb2YJ8oPtmIFr-Jpf7BmDvWKKbRYgJpB3X8Ipl7ngxJ9an5a9xBGrfFguuFwopUnfruIz_yOVq6RuOjroCJ4hRRFxHxUrOJts7sygovUdCC8OnU8emhQD9T-c2jX_9RltfWIYGSAIJRixSy4"/>
+</div>
+<div class="rounded-lg overflow-hidden h-96 shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="close up of a pomeranian dog with a perfectly rounded teddy bear cut looking adorable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoyMlt43T9VaIyuUjYjqijRvUlJD6RCrTzcgkPV26isEyvy5LrIKA-seyXItI2HqXBgz78WkFXQaQSOnIK1yxDID1teFEbWU7gRaFMVks9EWVZND1WErFRMhBZhsGVrwlv0NLWCogN6hUmSB19jOxZHwlgT9-CuOmOrE9M8I550C4DMhdUKADTeX9eQsceNO3vwy36IQWddtl5IQlo2u-PeseuxQdfE7xhjedKyKa7H0sQCnh5geB0BntTkCnplKIZxKUpy4nGlgU"/>
+</div>
+<div class="rounded-lg overflow-hidden h-80 md:-mt-16 shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="professional photo of a border collie with shiny black and white fur after a premium wash" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbWBh6GimjDr1HHFaiWfQrytUYR98vL8NZz9M2Xls9CMp6QeiYDuXD9Ba-UBvdvtpscGkgsIXFMZNqir2NdHv_eTbGcfypL69GGmt94eja7XiZ8vi1-r_6oN2KOnDan3KqMc_hMUcw9El-Td_OJ-l0j9gYOFSOekcQp-YV-F17waGmr4SZy4k6gOU2ctDd5KiTtpxFM6PuhTaDYJcuWMuFsSFpWo7cAQ91QZSm5F4Ya0l-M52m7ItZckBG5Y7PSj8BA90bK9k07-0"/>
+</div>
+<div class="rounded-lg overflow-hidden h-[440px] shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="calm ragdoll cat being groomed with professional tools in a peaceful setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNj_IVNJPO9aQAPsKLJDNhENtT4gwlQz8Vi7zs38izrTZuO47yl2aDopU9ElGSUmNxFJfZPfoiG50RWSFru9x8dP2KfzglVU0WCMNNi_pf6og9gWGZxFeRtRyeamJlK3aG55n_8mde8QhWZClRgwfLNPhaEy-Gu557p65YzSeSdvdgHYwgwshSlm5BonkEzwnulK2U93v8aOGmkKVak42M_qZOi58AVwUot69ph8eIQginxZ8VmjUzoJmz_UtsgsyBov4AJnB0bOk"/>
+</div>
+<div class="rounded-lg overflow-hidden h-72 shadow-lg hover:scale-[1.02] transition-transform">
+<img class="w-full h-full object-cover" data-alt="happy golden retriever wearing a colorful bandana after a full grooming session" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV2udi3hhZChkclxY1NwuoSbt4V85YsI0coi2aUYna_DOIHuUTfFuwOah7MYM9zAoIOJhL2DAaD5ocDCz9cNI8X0XlAP9Fg3POFky3_Uep0wTdLTeUVznsulOFw40FXua9WunIEJllzTFDM2dJQjnspSYN_B3D_22-DouuQHiWXp1gtHL2IEBcEOTcLqL7n_Hz8Gqfkp7DKg4EY1SThG2U7Z1NfSU5fzsA6Ogt1CpNTyE6Ggv6hfwWPnnZeNF50DCIhGTvJOmNsyw"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Nossa História -->
+<section class="py-24 bg-surface-container" id="sobre">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl -rotate-2"></div>
+<img class="relative rounded-xl shadow-2xl z-10 w-full object-cover aspect-video" data-alt="friendly woman pet groomer smiling and holding a small dog alongside her professional team in a clean modern workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoW8e6hFz2le-NdkKSimxOGyd0iv_EJFzs0fSdTvqq0PqQus4OpBzgNOzaJpkIGE_C4quvdmSEsPWyCLVAzARzxFVfFbgXRGkNQwqiIUa7d_oDjmksTAt2G9Uxw7x-KKk8bewkH6_MOCe0UxVcK3zIIq_H_Y2gVokBnomT0f5WZCNh3DF9CSQH-KTaqLi29zpDQt_3FcKkjmwhkUO4r_2N7P1qdh5XY_SUUNB1r2sJftP9C7TBLEmOihs-K0xgNYfNwsMROtXiQzw"/>
+<div class="absolute -bottom-6 -right-6 bg-secondary-container p-8 rounded-lg shadow-xl z-20">
+<p class="text-4xl font-headline font-black text-on-secondary-fixed">10+</p>
+<p class="text-sm font-headline font-bold text-on-secondary-fixed-variant uppercase tracking-tighter">Anos de Amor</p>
+</div>
+</div>
+<div class="space-y-6">
+<h2 class="text-4xl font-headline font-extrabold text-primary">Nossa História</h2>
+<p class="text-lg text-on-surface leading-relaxed">
+                            A Confraria do Pet nasceu do sonho de oferecer mais que apenas higiene: queríamos criar um refúgio de bem-estar. Com mais de uma década de experiência, nossa equipe de especialistas certificados trata cada animal como parte da própria família.
+                        </p>
+<p class="text-on-surface-variant leading-relaxed">
+                            Nossa metodologia foca na redução do estresse animal, utilizando técnicas de manejo positivo e produtos que respeitam a sensibilidade da pele e do olfato dos pets.
+                        </p>
+<div class="grid grid-cols-2 gap-4 pt-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="font-headline font-semibold text-sm">Equipe Certificada</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">favorite</span>
+<span class="font-headline font-semibold text-sm">Manejo Positivo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Depoimentos -->
+<section class="py-24 bg-surface" id="depoimentos">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-4">O que dizem os tutores</h2>
+<div class="flex justify-center gap-1 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm relative">
+<span class="material-symbols-outlined absolute top-6 right-6 text-primary/10 text-6xl">format_quote</span>
+<p class="text-on-surface-variant italic mb-8 relative z-10">"O melhor lugar que já levei o Thor. Ele costumava ficar muito estressado no banho, mas na Confraria do Pet ele entra e sai abanando o rabo. Cuidado impecável!"</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img alt="Mariana" data-alt="portrait of a smiling woman in her 30s with warm expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjzG8stDLTFf-syVkcKx8KjQGJrxARjwIaURSdiPI40iS9_2-hiULEFGKxQyIDUi7KjAytSilOa5KBgm_iffAzDozK4AtmChS71qKElgZlk85Qrl65GfQf4actuCWx0eTUDB8T79OVkQYjb7rLNMJoR1sUUD9gTDeTFsKns3FM87j7j0sbnYdZTPHJSzd72Xv1B19pKTh4dq5rvpWZhvdsUOrpwB2VUlTLQrhk777riZYjD0J4GhuJ_6iCz5uzmcMeCkOxmjAvGlY"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Mariana Costa</h4>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Tutor do Thor (Golden)</p>
+</div>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-8 rounded-lg shadow-xl relative scale-105 z-10">
+<span class="material-symbols-outlined absolute top-6 right-6 text-white/10 text-6xl">format_quote</span>
+<p class="text-primary-fixed italic mb-8 relative z-10">"A tosa higiênica da Mel é sempre perfeita. Dá para ver que usam produtos de primeira linha, o cheirinho dura a semana inteira e ela fica super macia."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container">
+<img alt="Ricardo" data-alt="portrait of a friendly middle aged man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sEG8oamQqcRp4379AHipTTMyXq5PI_PrST6dKW3XEPFx2dEKyFZUPCJUqslpF-Ygk2bEeBEvEiabVKSuRpvo4Ou3PB0jLQJe00VRWj2JfUGGMNrKH9dwQ45EBe3gFJ-nO_IDo83birpry5Tylto_hk5ddtpd7vF2RQM7jWNDgfJRML0CurEybmr6KlNVn-90ftVowOysSIiGrWnmI8cvW0YGNOGvlLGbpNvkjP2Co4nit4-1b3r5-yNtnmi4iFHb_gFNnALUSnA"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-white">Ricardo Mendes</h4>
+<p class="text-xs text-primary-fixed uppercase font-bold tracking-widest">Tutor da Mel (Poodle)</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm relative">
+<span class="material-symbols-outlined absolute top-6 right-6 text-primary/10 text-6xl">format_quote</span>
+<p class="text-on-surface-variant italic mb-8 relative z-10">"Impressionada com a paciência da equipe com gatos. A Luna é bem difícil, mas eles conseguiram dar o banho com toda calma. Recomendo muito!"</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img alt="Beatriz" data-alt="portrait of a young woman with creative styling and friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIMgeJd4CiX4HKp82YYFMR9SgKRpCyJrJJb3piJRdqUXf_H_T00-xsjnJYnjpo4QwYP-IFIzPWrh1IJmyH_JGr9IueZ4ewRUvt7CUMZKAK10iPCcxXtnaQ0B3llSZUA-UvLXaX3Zpc6fWV7JnCKN2pagA-YN5dIqtfI7xPxvVQz0m0Ys4Z-2rb5f24LxfLAot6jMozP1id1j3onIjzg6hkuHZxdZwSGmEcMc09VHmgxD4PPA77HGoqPW5CK3RvdmuI01egIbWXvzQ"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Beatriz Silva</h4>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Tutora da Luna (Persa)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fale Conosco -->
+<section class="py-24" id="contato">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-5/12 bg-primary p-12 text-on-primary space-y-10">
+<h2 class="text-4xl font-headline font-bold">Fale Conosco</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<div>
+<h4 class="font-bold mb-1">Endereço</h4>
+<p class="text-primary-fixed opacity-90">Rua das Flores, 123 - Jardim das Patas, São Paulo/SP</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary">call</span>
+<div>
+<h4 class="font-bold mb-1">Telefone / WhatsApp</h4>
+<p class="text-primary-fixed opacity-90">(11) 98765-4321</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<div>
+<h4 class="font-bold mb-1">Horário de Funcionamento</h4>
+<p class="text-primary-fixed opacity-90">Segunda a Sexta: 08h às 18h<br/>Sábado: 08h às 14h</p>
+</div>
+</div>
+</div>
+<div class="pt-10 border-t border-white/10 rounded-lg overflow-hidden">
+<img alt="Location map" class="w-full h-40 object-cover rounded-lg grayscale" data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATHLwGsoyWb-3uAtyDhpK-_pS9JPv3VaSiZpdpz7Ps0aEW2xpbQYvEAg-aAel0dEp25_bEvBeCL3iGElAToF4KIkRImHk14jq-mqXNf7Sv3ZwsTW-bhHRszszD9TbDTRYvAsXJvjNOBKEfR2WEZSb2_EIh2JyuKXrdPvNioJqIQXByKvgzUcUKwZNrtQ_UeDAyQVvRrOcUdOKvhDFgT0bmFeMfCUMT_Zl1w1mdB7jFV4bz_LOUU83gyWYauBjWwfyTay2Xl7XMOlM"/>
+</div>
+</div>
+<div class="md:w-7/12 p-12">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-headline font-bold text-on-surface-variant uppercase">Seu Nome</label>
+<input class="w-full bg-surface-container p-4 rounded-lg border-none focus:ring-2 focus:ring-primary" placeholder="Digite seu nome completo" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-headline font-bold text-on-surface-variant uppercase">Seu WhatsApp</label>
+<input class="w-full bg-surface-container p-4 rounded-lg border-none focus:ring-2 focus:ring-primary" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-headline font-bold text-on-surface-variant uppercase">Serviço de Interesse</label>
+<select class="w-full bg-surface-container p-4 rounded-lg border-none focus:ring-2 focus:ring-primary appearance-none">
+<option>Banho Premium</option>
+<option>Tosa Estilizada</option>
+<option>Hidratação SPA</option>
+<option>Outros</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-headline font-bold text-on-surface-variant uppercase">Mensagem</label>
+<textarea class="w-full bg-surface-container p-4 rounded-lg border-none focus:ring-2 focus:ring-primary h-32" placeholder="Como podemos ajudar você e seu pet?"></textarea>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container p-5 rounded-lg font-headline font-bold text-lg shadow-lg hover:bg-secondary-fixed transition-colors" type="submit">
+                                Enviar Mensagem
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-blue-900 dark:bg-slate-950 text-white font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-bold text-white">Confraria do Pet</div>
+<p class="text-blue-100/80 max-w-xs">Oferecendo o melhor em cuidado e estética pet com amor e profissionalismo há mais de 10 anos.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">photo_camera</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-white uppercase tracking-widest text-xs">Links Rápidos</h4>
+<ul class="space-y-4">
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#servicos">Serviços</a></li>
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#sobre">Sobre Nós</a></li>
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#galeria">Galeria</a></li>
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#contato">Agendamento</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-white uppercase tracking-widest text-xs">Suporte</h4>
+<ul class="space-y-4">
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#">FAQ</a></li>
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#">Privacidade</a></li>
+<li><a class="text-blue-100/80 hover:text-yellow-200 underline decoration-2 underline-offset-4 transition-all hover:translate-x-1 inline-block" href="#">Termos de Uso</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-white uppercase tracking-widest text-xs">Contato</h4>
+<p class="text-blue-100/80">contato@petdarita.com.br</p>
+<p class="text-blue-100/80">(11) 98765-4321</p>
+<div class="bg-white/5 p-4 rounded-lg">
+<p class="text-yellow-400 font-medium">Atendimento Prioritário</p>
+<p class="text-xs text-blue-100/60 mt-1">Via WhatsApp para agendamentos rápidos.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 px-12 py-8 text-center text-blue-100/40 text-xs">
+            © 2024 Confraria do Pet. Todos os direitos reservados.
+        </div>
+</footer>
+</body></html>
