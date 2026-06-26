@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Proposta Comercial | Confraria Web — Soluções e Investimentos</title>
+  <meta name="description" content="Conheça cada serviço da Confraria Web: Site Institucional, Google Meu Negócio, Landing Page e SEO. Valores, incluso e pacotes com transparência total.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://confrariaweb.com.br/proposta/">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../favicon.svg">
+  <meta name="theme-color" content="#e87820">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="../styles.css" as="style">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* ===== Proposta — estilos específicos desta página ===== */
+    .hero--proposta {
+      min-height: 58vh;
+    }
+
+    /* Seções de serviço */
+    .servico-detalhe {
+      padding: 100px 0;
+      background: var(--primary-light);
+    }
+    .servico-detalhe.alt {
+      background: var(--primary);
+    }
+
+    .servico-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .servico-bloco {
+      background: var(--gradient-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+    }
+
+    .servico-bloco h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .beneficios-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .beneficios-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .beneficios-list li::before {
+      content: "✦";
+      color: var(--gold);
+      font-size: 0.75rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .bonus-box {
+      background: rgba(232, 120, 32, 0.06);
+      border: 1px solid rgba(232, 120, 32, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 0.87rem;
+      line-height: 1.6;
+    }
+
+    .bonus-box strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .bonus-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bonus-box ul li::before {
+      content: "🎁 ";
+    }
+
+    .secoes-tipicas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .nao-incluso-box {
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: 18px 24px;
+      margin-top: 24px;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .nao-incluso-box strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    /* Seção de preços */
+    .proposta-precos {
+      background: var(--primary-light);
+      padding: 100px 0;
+    }
+
+    .proposta-precos::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+      margin-bottom: 0;
+    }
+
+    .precos-subtitulo {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 56px 0 24px;
+      color: var(--text);
+    }
+
+    .precos-subtitulo:first-of-type {
+      margin-top: 0;
+    }
+
+    /* Cards de preço individuais */
+    .precos-individuais {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    /* Cards de pacote */
+    .pacotes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .preco-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .preco-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(232, 120, 32, 0.3);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+    }
+
+    .preco-card .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(232, 120, 32, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .preco-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .preco-card .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .parcela-destaque {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 0 2px;
+    }
+
+    .parcela-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .parcela-valor {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.05;
+    }
+
+    .parcela-sem-juros {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-top: 2px;
+    }
+
+    .valor-avista {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .preco-card .valor-original {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .preco-card .economia-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      background: #22c55e;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+
+    .preco-card .servicos-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .preco-card .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(176, 125, 26, 0.08);
+      border: 1px solid rgba(176, 125, 26, 0.2);
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    .preco-card .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--gradient-accent);
+      color: #fff;
+      transition: var(--transition);
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(232, 120, 32, 0.3);
+      margin-top: auto;
+    }
+
+    .preco-card .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232, 120, 32, 0.4);
+    }
+
+    .pacote-destaque {
+      border-color: rgba(232, 120, 32, 0.35);
+      box-shadow: 0 4px 24px rgba(232, 120, 32, 0.12), var(--shadow-card);
+      position: relative;
+    }
+
+    .pacote-label {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-accent);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(232, 120, 32, 0.35);
+    }
+
+    /* Banner de pagamento */
+    .pagamento-banner {
+      background: rgba(232, 120, 32, 0.07);
+      border: 1px solid rgba(232, 120, 32, 0.2);
+      border-radius: var(--radius);
+      padding: 28px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .pagamento-banner p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .pagamento-banner strong {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .cta-final {
+      text-align: center;
+      padding: 8px 0 16px;
+    }
+
+    .cta-final .btn-primary {
+      font-size: 1.05rem;
+      padding: 18px 44px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .precos-individuais { grid-template-columns: 1fr 1fr; }
+      .pacotes-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    }
+
+    @media (max-width: 768px) {
+      .servico-grid { grid-template-columns: 1fr; }
+      .servico-detalhe { padding: 72px 0; }
+      .proposta-precos { padding: 72px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .precos-individuais { grid-template-columns: 1fr; }
+      .hero--proposta { min-height: 70vh; }
+      .pagamento-banner { padding: 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-proposta" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../" class="navbar-logo">Confraria <span>Web</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../">Início</a></li>
+        <li><a href="#site-institucional">Site</a></li>
+        <li><a href="#google-meu-negocio">Google</a></li>
+        <li><a href="#landing-page">Landing Page</a></li>
+        <li><a href="#seo">SEO</a></li>
+        <li><a href="#precos" class="nav-cta">Ver Preços</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main-proposta" role="main">
+
+  <!-- ========== HERO ========== -->
+  <section class="hero hero--proposta" id="inicio" aria-label="Proposta Comercial">
+    <div class="hero-content">
+      <span class="hero-badge">✦ Proposta Comercial</span>
+      <h1>Nossas Soluções e <span class="highlight">Investimentos</span></h1>
+      <p>Conheça cada serviço com detalhes, o que está incluso e os valores. Sem surpresas, sem letras miúdas.</p>
+      <div class="hero-buttons">
+        <a href="#precos" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          Ver preços e pacotes
+        </a>
+        <a href="https://wa.me/5551936190758?text=Olá%2C%20vi%20a%20proposta%20da%20Confraria%20Web%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 01 — SITE INSTITUCIONAL ========== -->
+  <section class="servico-detalhe" id="site-institucional" aria-label="Site Institucional">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">01 — Site Institucional</span>
+        <h2>Seu espaço profissional na internet</h2>
+        <p>Um site institucional é a vitrine digital da sua empresa — disponível 24h, para qualquer pessoa, em qualquer lugar do Brasil. É onde o cliente te encontra, te conhece e decide entrar em contato.</p>
+      </div>
+
+      <div class="servico-grid">
+        <div class="servico-bloco animate-on-scroll">
+          <h4>Por que ter um site institucional?</h4>
+          <ul class="beneficios-list">
+            <li>Presença online 24h, 7 dias por semana, sem custo adicional</li>
+            <li>Credibilidade e profissionalismo imediatos perante o cliente</li>
+            <li>Captação passiva de clientes mesmo fora do horário comercial</li>
+            <li>Aparecer no Google quando alguém busca pelo seu serviço</li>
+            <li>Centralize serviços, contato e localização em um só lugar</li>
+            <li>Diferencial competitivo em relação a concorrentes sem site</li>
+          </ul>
+        </div>
+
+        <div class="servico-bloco animate-on-scroll">
+          <h4>O que está incluso</h4>
+          <ul class="produto-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Design personalizado e responsivo (mobile-first)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Página de contato integrada com WhatsApp
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              SEO básico configurado (title, meta, headings)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Google Analytics / Search Console configurados
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              30 dias de suporte após a entrega
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Entrega em até <strong>10 dias úteis</strong>
+            </li>
+          </ul>
+
+          <div class="bonus-box">
+            <strong>Bônus inclusos sem custo extra:</strong>
+            <ul>
+              <li>Domínio grátis por 1 ano (caso você ainda não tenha)</li>
+              <li>Hospedagem por 1 ano inclusa no valor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="servico-bloco animate-on-scroll" style="margin-top: 24px;">
+        <h4>Seções típicas de um site institucional</h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px;">Um site institucional geralmente é composto pelas seguintes seções. O conteúdo de cada uma é definido junto com você antes do início do projeto:</p>
+        <div class="secoes-tipicas">
+          <span class="portfolio-tag">Home / Início</span>
+          <span class="portfolio-tag">Sobre / Quem Somos</span>
+          <span class="portfolio-tag">Serviços / O que Fazemos</span>
+          <span class="portfolio-tag">Portfólio (opcional)</span>
+          <span class="portfolio-tag">Depoimentos (opcional)</span>
+          <span class="portfolio-tag">Contato</span>
+        </div>
+      </div>
+
+      <div class="nao-incluso-box animate-on-scroll">
+        <strong>⚠️ Importante — o que não está incluso neste serviço:</strong>
+        Integrações com sistemas externos (ERP, CRM, plataformas de gestão), páginas de vendas com checkout ou carrinho de compras, loja virtual (e-commerce) e blog com publicação recorrente de conteúdo. O site institucional foca em apresentar sua empresa e gerar contato — não em processar vendas ou transações. Se precisar de algo além disso, entre em contato para avaliarmos juntos.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 — GOOGLE MEU NEGÓCIO ========== -->
+  <section class="servico-detalhe alt" id="google-meu-negocio" aria-label="Google Meu Negócio">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">02 — Google Meu Negócio</span>
+        <h2>Seja encontrado por quem está procurando agora</h2>
+        <p>O Google Meu Negócio (oficialmente chamado de Perfil da Empresa no Google) é o cadastro que faz sua empresa aparecer no Google Maps e nas buscas locais. Quando alguém digita "serviço na minha cidade", é isso que aparece em destaque.</p>
+      </div>
+
+      <div class="servico-grid">
+        <div class="servico-bloco animate-on-scroll">
+          <h4>Por que configurar o Google Meu Negócio?</h4>
+          <ul class="beneficios-list">
+            <li>Aparecer no Maps quando alguém busca pelo seu serviço na região</li>
+            <li>Exibir horário, telefone, endereço e site direto nos resultados</li>
+            <li>Receber e responder avaliações de clientes (social proof)</li>
+            <li>Publicar fotos que mostram a estrutura ou os produtos do negócio</li>
+            <li>Ser encontrado sem pagar por anúncios — tráfego gratuito e qualificado</li>
+            <li>Empresas sem perfil ou com perfil incompleto perdem para a concorrência</li>
+          </ul>
+        </div>
+
+        <div class="servico-bloco animate-on-scroll">
+          <h4>O que está incluso</h4>
+          <ul class="produto-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Criação ou recuperação do perfil no Google
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Preenchimento completo: endereço, telefone, site, horário
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Seleção das categorias certas para o seu negócio
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Redação da descrição otimizada para SEO local
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Upload das fotos da empresa e identidade visual
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Cadastro de serviços e/ou produtos no perfil
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Entrega em até <strong>3 dias úteis</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="servico-bloco animate-on-scroll" style="margin-top: 24px; background: rgba(232,120,32,0.04);">
+        <h4>Já tenho um perfil — vale otimizar?</h4>
+        <p style="font-size: 0.9rem; color: var(--text); line-height: 1.7; margin: 0;">Sim, e muito. Perfis incompletos ou mal configurados são extremamente comuns e prejudicam diretamente o ranqueamento local. Fazemos a auditoria completa e corrigimos tudo: categorias erradas, descrição genérica, fotos faltando, horários incorretos. O serviço tem o mesmo valor e prazo, seja criação ou otimização.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 — LANDING PAGE ========== -->
+  <section class="servico-detalhe" id="landing-page" aria-label="Landing Page">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">03 — Landing Page</span>
+        <h2>Uma página com foco total em converter</h2>
+        <p>Diferente de um site institucional, a landing page é uma página única construída para uma ação específica: captar um lead, gerar um agendamento, divulgar um produto ou serviço. Ideal para campanhas de marketing e lançamentos.</p>
+      </div>
+
+      <div class="servico-grid">
+        <div class="servico-bloco animate-on-scroll">
+          <h4>Quando faz sentido ter uma landing page?</h4>
+          <ul class="beneficios-list">
+            <li>Divulgar um serviço ou produto específico com foco máximo</li>
+            <li>Campanhas de tráfego pago (Google Ads, Meta Ads) com alta conversão</li>
+            <li>Captar leads com formulário ou botão de WhatsApp</li>
+            <li>Lançamentos, promoções ou eventos com data definida</li>
+            <li>Profissional liberal que precisa de presença digital rápida e objetiva</li>
+            <li>Alternativa ao site completo para negócios que estão começando</li>
+          </ul>
+        </div>
+
+        <div class="servico-bloco animate-on-scroll">
+          <h4>O que está incluso</h4>
+          <ul class="produto-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Design personalizado e responsivo (mobile-first)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Formulário ou botão de contato integrado com WhatsApp
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              SEO básico configurado (title, meta, headings)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Google Analytics configurado
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              30 dias de suporte após a entrega
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Entrega em até <strong>10 dias úteis</strong>
+            </li>
+          </ul>
+
+          <div class="bonus-box">
+            <strong>Bônus inclusos sem custo extra:</strong>
+            <ul>
+              <li>Domínio grátis por 1 ano (caso você ainda não tenha)</li>
+              <li>Hospedagem por 1 ano inclusa no valor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 — SEO ========== -->
+  <section class="servico-detalhe alt" id="seo" aria-label="SEO e Otimização">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">04 — SEO & Otimização</span>
+        <h2>Apareça no Google sem pagar por anúncios</h2>
+        <p>SEO (Search Engine Optimization) é o conjunto de técnicas que faz o seu site subir nas páginas de resultados do Google de forma orgânica. Resultado de longo prazo: você investe uma vez e colhe por meses ou anos.</p>
+      </div>
+
+      <div class="servico-grid">
+        <div class="servico-bloco animate-on-scroll">
+          <h4>Por que investir em SEO?</h4>
+          <ul class="beneficios-list">
+            <li>Tráfego orgânico gratuito — sem custo por clique ou por impressão</li>
+            <li>Visitantes mais qualificados: quem busca pelo seu serviço já tem intenção de compra</li>
+            <li>Resultado acumulativo: site otimizado ganha autoridade com o tempo</li>
+            <li>Reduz dependência de anúncios pagos a longo prazo</li>
+            <li>Melhora a experiência do usuário no site (velocidade, estrutura)</li>
+            <li>Ideal para complementar qualquer um dos outros serviços</li>
+          </ul>
+        </div>
+
+        <div class="servico-bloco animate-on-scroll">
+          <h4>O que está incluso</h4>
+          <ul class="produto-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Auditoria técnica completa do site
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Otimização de meta tags (title, description, headings)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Configuração do Google Search Console
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Otimização de velocidade e Core Web Vitals
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Relatório de palavras-chave para o seu negócio
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Entrega em até <strong>5 dias úteis</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PREÇOS ========== -->
+  <section class="proposta-precos" id="precos" aria-label="Preços e Pacotes">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Investimentos</span>
+        <h2>Valores e Pacotes</h2>
+        <p>Escolha o serviço que sua empresa precisa agora, ou um dos nossos pacotes com desconto.</p>
+      </div>
+
+      <!-- Serviços Individuais -->
+      <h3 class="precos-subtitulo animate-on-scroll">Serviços Individuais</h3>
+
+      <div class="precos-individuais animate-on-scroll">
+        <!-- Site Institucional -->
+        <div class="preco-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e87820" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3>Site Institucional</h3>
+          <p class="card-desc">Site profissional completo com domínio e hospedagem inclusos</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 79,70</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 797 à vista</p>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20no%20Site%20Institucional%20por%20R%24%20797." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este
+          </a>
+        </div>
+
+        <!-- Google Meu Negócio -->
+        <div class="preco-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e87820" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Google Meu Negócio</h3>
+          <p class="card-desc">Perfil otimizado para aparecer nas buscas locais e no Maps</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 55,00</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 550 à vista</p>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20no%20Google%20Meu%20Neg%C3%B3cio%20por%20R%24%20550." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este
+          </a>
+        </div>
+
+        <!-- Landing Page -->
+        <div class="preco-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e87820" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Landing Page</h3>
+          <p class="card-desc">Página de alta conversão com domínio e hospedagem inclusos</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 55,00</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 550 à vista</p>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20na%20Landing%20Page%20por%20R%24%20550." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este
+          </a>
+        </div>
+
+        <!-- SEO -->
+        <div class="preco-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e87820" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>SEO & Otimização</h3>
+          <p class="card-desc">Auditoria e otimização completa para o seu site subir no Google</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 40,00</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 400 à vista</p>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20no%20SEO%20por%20R%24%20400." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este
+          </a>
+        </div>
+      </div>
+
+      <!-- Pacotes -->
+      <h3 class="precos-subtitulo animate-on-scroll">Pacotes com Desconto</h3>
+
+      <div class="pacotes-grid animate-on-scroll">
+
+        <!-- Pacote 1 — Presença Completa -->
+        <div class="preco-card pacote-destaque">
+          <span class="pacote-label">Mais Popular</span>
+          <h3>Presença Completa</h3>
+          <div class="servicos-tags">
+            <span class="tag">Site Institucional</span>
+            <span class="tag">Google Meu Negócio</span>
+            <span class="tag">SEO</span>
+          </div>
+          <p class="card-desc">Combinação completa para quem quer estar presente no Google com site, perfil local e otimização.</p>
+          <p class="valor-original">De R$ 1.747</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 99,70</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 997 à vista</p>
+          <span class="economia-badge">Economia de R$ 750</span>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20no%20Pacote%20Presen%C3%A7a%20Completa%20(Site%20%2B%20GMB%20%2B%20SEO)%20por%20R%24%20997." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este pacote
+          </a>
+        </div>
+
+        <!-- Pacote 2 — Marketing Local -->
+        <div class="preco-card">
+          <h3>Marketing Local</h3>
+          <div class="servicos-tags">
+            <span class="tag">Landing Page</span>
+            <span class="tag">Google Meu Negócio</span>
+            <span class="tag">SEO</span>
+          </div>
+          <p class="card-desc">Ideal para campanhas: página de conversão, presença no Maps e otimização para o Google.</p>
+          <p class="valor-original">De R$ 1.500</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 75,00</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 750 à vista</p>
+          <span class="economia-badge">Economia de R$ 750</span>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20no%20Pacote%20Marketing%20Local%20(LP%20%2B%20GMB%20%2B%20SEO)%20por%20R%24%20750." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este pacote
+          </a>
+        </div>
+
+        <!-- Pacote 3 — Site + SEO -->
+        <div class="preco-card">
+          <h3>Site + SEO</h3>
+          <div class="servicos-tags">
+            <span class="tag">Site Institucional</span>
+            <span class="tag">SEO</span>
+          </div>
+          <p class="card-desc">Site profissional já entregue otimizado para aparecer melhor nos resultados do Google.</p>
+          <p class="valor-original">De R$ 1.197</p>
+          <div class="parcela-destaque">
+            <span class="parcela-label">10x de</span>
+            <span class="parcela-valor">R$ 85,00</span>
+            <span class="parcela-sem-juros">sem juros</span>
+          </div>
+          <p class="valor-avista">R$ 850 à vista</p>
+          <span class="economia-badge">Economia de R$ 347</span>
+          <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Tenho%20interesse%20no%20Pacote%20Site%20%2B%20SEO%20por%20R%24%20850." target="_blank" rel="noopener" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Quero este pacote
+          </a>
+        </div>
+      </div>
+
+      <!-- Pagamento -->
+      <div class="pagamento-banner animate-on-scroll">
+        <p>
+          <strong>Até 10x sem juros</strong> em qualquer serviço ou pacote.<br>
+          Aceitamos Pix, cartão de crédito e transferência bancária.<br>
+          <span style="font-size: 0.9rem; color: var(--text-muted);">Parcelamento no cartão sujeito à aprovação da operadora. Parcelas calculadas sobre o valor total.</span>
+        </p>
+      </div>
+
+      <!-- CTA Final -->
+      <div class="cta-final animate-on-scroll">
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;">Ficou com dúvida ou quer conversar antes de decidir? Estamos no WhatsApp.</p>
+        <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Vi%20a%20proposta%20e%20gostaria%20de%20conversar%20antes%20de%20decidir." target="_blank" rel="noopener" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Falar com a Confraria Web
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Confraria Web</div>
+
+        <div class="footer-links">
+          <a href="../">Início</a>
+          <a href="#site-institucional">Site</a>
+          <a href="#google-meu-negocio">Google</a>
+          <a href="#landing-page">Landing Page</a>
+          <a href="#seo">SEO</a>
+          <a href="#precos">Preços</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://instagram.com/confrariaweb" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://facebook.com/confrariaweb" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/confrariaweb" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="copyright-year">2026</span> Confraria Web. Todos os direitos reservados.</p>
+        <p class="footer-empresa">Conheça nossa empresa: <a href="https://atendus.com.br/" target="_blank" rel="noopener">Atendus</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/5551936190758?text=Ol%C3%A1%2C%20Confraria%20Web!%20Vi%20a%20proposta%20e%20gostaria%20de%20saber%20mais." class="whatsapp-fab" id="whatsapp-fab" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <span class="tooltip">Fale conosco!</span>
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.914 15.914 0 0 0 16.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.342 22.616c-.39 1.1-1.932 2.014-3.164 2.28-.844.18-1.946.322-5.656-1.216-4.746-1.966-7.8-6.776-8.036-7.09-.228-.314-1.9-2.532-1.9-4.83s1.2-3.428 1.628-3.898c.39-.428.914-.642 1.26-.642.152 0 .29.008.414.014.428.018.642.044.924.714.352.836 1.21 2.952 1.314 3.168.106.216.212.502.068.786-.136.292-.256.42-.472.668-.216.248-.422.438-.638.706-.198.234-.42.484-.178.912.242.428 1.076 1.778 2.31 2.88 1.59 1.418 2.93 1.858 3.344 2.064.314.156.69.132.94-.134.318-.34.712-.904 1.112-1.46.284-.398.644-.448.99-.306.352.136 2.226 1.05 2.608 1.242.382.192.636.288.73.448.09.16.09.914-.3 2.014z"/>
+    </svg>
+  </a>
+
+  <script src="../scripts.js" defer></script>
+</body>
+</html>

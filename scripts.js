@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initCountUp();
   initFaq();
+  initPortfolioCarousel();
   const yearEl = document.getElementById('copyright-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
@@ -68,7 +69,7 @@ function initScrollAnimations() {
   elements.forEach(el => observer.observe(el));
 }
 
-// ===== Contact Form =====
+// ===== Contact Form → WhatsApp =====
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const formBody = document.getElementById('form-body');
@@ -84,70 +85,37 @@ function initContactForm() {
     const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    // Clear any previous error
     const errorEl = document.getElementById('form-error');
     if (errorEl) errorEl.classList.remove('show');
 
-    // Basic validation
-    if (!name || !email || !message) {
-      showFieldError('Por favor, preencha todos os campos obrigatórios.');
+    if (!name || !message) {
+      showFieldError('Por favor, preencha seu nome e a mensagem.');
       return;
     }
 
-    if (!isValidEmail(email)) {
+    if (email && !isValidEmail(email)) {
       showFieldError('Por favor, informe um e-mail válido.');
       return;
     }
 
-    // Turnstile token
-    const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
-    if (!turnstileToken) {
-      showFieldError('Por favor, aguarde a verificação de segurança e tente novamente.');
-      return;
-    }
+    let text = `Olá, Confraria Web! 👋\n\n`;
+    text += `*Nome:* ${name}\n`;
+    if (email) text += `*E-mail:* ${email}\n`;
+    if (phone) text += `*Telefone:* ${phone}\n`;
+    text += `\n*Mensagem:*\n${message}`;
 
-    let btnSubmit = document.getElementById('btn-submit');
-    const originalBtnText = btnSubmit.innerHTML;
-    btnSubmit.innerHTML = 'Enviando...';
-    btnSubmit.disabled = true;
+    const waUrl = `https://wa.me/5551936190758?text=${encodeURIComponent(text)}`;
 
-    const workerUrl = '/api/contact';
+    formBody.style.display = 'none';
+    formSuccess.classList.add('show');
 
-    fetch(workerUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, phone, message, turnstileToken })
-    })
-    .then(response => response.json())
-    .then(data => {
-      btnSubmit.innerHTML = originalBtnText;
-      btnSubmit.disabled = false;
+    window.open(waUrl, '_blank', 'noopener');
 
-      if (data.error) throw new Error(data.error);
-
-      // Show success state
-      formBody.style.display = 'none';
-      formSuccess.classList.add('show');
-      
-      // We removed the WhatsApp redirect popup here, it's just an email now 
-
-      // Reset after 5 seconds
-      setTimeout(() => {
-        form.reset();
-        if (window.turnstile) window.turnstile.reset();
-        formBody.style.display = 'block';
-        formSuccess.classList.remove('show');
-      }, 5000);
-    })
-    .catch(error => {
-      console.error('Error sending message:', error);
-      btnSubmit.innerHTML = originalBtnText;
-      btnSubmit.disabled = false;
-      if (window.turnstile) window.turnstile.reset();
-      showFieldError('Houve um erro ao enviar sua mensagem. Tente novamente ou nos chame no WhatsApp.');
-    });
+    setTimeout(() => {
+      form.reset();
+      formBody.style.display = 'block';
+      formSuccess.classList.remove('show');
+    }, 6000);
   });
 }
 
@@ -227,6 +195,49 @@ function initFaq() {
       }
     });
   });
+}
+
+// ===== Portfolio Carousel =====
+function initPortfolioCarousel() {
+  const track = document.querySelector('.portfolio-track');
+  const prevBtn = document.querySelector('.carousel-btn-prev');
+  const nextBtn = document.querySelector('.carousel-btn-next');
+  const dots = document.querySelectorAll('.carousel-dot');
+
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.portfolio-card');
+
+  function cardWidth() {
+    return cards[0].offsetWidth + 24;
+  }
+
+  function update() {
+    const scrollLeft = track.scrollLeft;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const idx = Math.round(scrollLeft / cardWidth());
+
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+    prevBtn.disabled = scrollLeft <= 1;
+    nextBtn.disabled = scrollLeft >= maxScroll - 1;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      track.scrollTo({ left: cardWidth() * i, behavior: 'smooth' });
+    });
+  });
+
+  track.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
 function animateCount(el, target, suffix) {
